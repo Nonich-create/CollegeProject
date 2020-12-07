@@ -1,0 +1,31 @@
+﻿<Window x:Class="Kursach.EditingClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+          WindowStartupLocation="CenterScreen"
+        Title="Редактирования клиента" Height="450" Width="800" AllowsTransparency="True" Background="Transparent"   WindowStyle="None"
+          x:Name="ViewFrom" MouseDown="Window_MouseLeftButtonDown" Loaded="FormLoad">
+    <Grid>
+        <Grid Margin="0,0,10,0">
+            <Image Source="/Image/minor.png" />
+            <Image Source="/Image/InsuranceZnak.png" Margin="-13,80,-15,121" />
+            <TextBox Text="Фамилия" ToolTip="Фамилия" Margin="35,94,511,326" x:Name="TextFamile" Height="30"/>
+            <TextBox Text="Имя" ToolTip="Имя" Margin="35,129,511,291" x:Name="TextName" Height="30"/>
+            <TextBox Text="Отчество" ToolTip="Отчество" Margin="35,164,511,256" x:Name="TextDoubleName" Height="30"/>
+            <TextBox Text="Адрес" ToolTip="город,улица,дом,кв" Margin="35,199,511,221" Width="Auto" x:Name="TextAdres" Height="30"/>
+            <TextBox Text="Почтовый индекс" ToolTip="Почтовый индекс" Margin="35,234,511,186" x:Name="TextPostalAdres" Height="30"/>
+            <TextBox Text="Серийный номер паспорта" ToolTip="MS паспорта" Margin="35,269,511,151" Width="Auto" x:Name="TextMS" Height="30"/>
+            <TextBox Text="Номер мобильного телефона" ToolTip="Номер телефона" Margin="510,94,34,326" Width="Auto" x:Name="TextNumberPhone" Height="30"/>
+            <TextBox Text="E-mail" ToolTip="E-mail" Margin="510,129,34,291" Width="Auto" x:Name="TextEmaill" Height="30"/>
+            <TextBox Text="Название банка" ToolTip="Название банка" Margin="510,164,34,256" Width="Auto" x:Name="TextBank" Height="30"/>
+            <TextBox Text="Расчетный счет" ToolTip="Расчетный счет" Margin="510,199,34,221" Width="Auto" x:Name="TextPaymentAccount" Height="30"/>
+            <TextBox Text="ИНН/КПП" ToolTip="Идентификационный номер налогоплательщика/Код Причины Постановки" Margin="510,234,34,186" Width="Auto" x:Name="TextINNAndKPP" Height="30"/>
+            <TextBox Text="БИК" ToolTip="банковский идентификационный код" Margin="510,269,34,151" Width="Auto" x:Name="TextBIC" Height="30"/>
+            <TextBox Text="Корреспондетский счет" ToolTip="Корреспондетский счет" Margin="510,304,34,116" Width="Auto" x:Name="TextCorrespondentAccount" Height="30"/>
+            <Button Margin="306,295,414,121" MaxWidth="160" ToolTip="Нажми меня" Content="Сохранить" x:Name="ButtonSave" Click="ButtonClickSave" />
+            <Button Margin="408,295,312,121" MaxWidth="160" ToolTip="Нажми меня" Content="Закрыть" x:Name="ButtonCancel" Click="ButtonClickCancel" />
+        </Grid>
+    </Grid>
+</Window>

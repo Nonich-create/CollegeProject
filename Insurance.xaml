@@ -1,0 +1,108 @@
+﻿<Window x:Class="Kursach.Insurance"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+          WindowStartupLocation="CenterScreen"
+        Title="Новый договор" Height="450" Width="800" AllowsTransparency="True" Background="Transparent"   WindowStyle="None"
+          x:Name="ViewFrom" MouseDown="Window_MouseLeftButtonDown" Loaded="FormLoad">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="389*"/>
+            <ColumnDefinition Width="402*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/Image/entry.png" Margin="-221,10,212,15" Grid.ColumnSpan="2" />
+        <Image Source="/Image/entry.png" Margin="223,10,-223,15" Grid.ColumnSpan="3" Visibility="Hidden" Name="ImgInsurance"/>
+        <ComboBox SelectedIndex="-1" MinWidth="50" Margin="45,48,86,370" x:Name="ClientList" ToolTip="Выбери клиента" Height="Auto" TextBoxBase.TextChanged="TextChangedListClient"  IsEditable="True"/>
+        <ComboBox SelectedIndex="-1" MinWidth="50" Margin="45,124,86,294" x:Name="InsuranceList" ToolTip="Выбери вид договора" Height="Auto"
+        TextBoxBase.TextChanged="ComboBox_Selected" IsEditable="True"   />
+        <TextBox Text="Сумма страхования" ToolTip="Сумма страхования" Margin="45,161,86,255" x:Name="TextInsuranceSumm" KeyDown="NumericKeyDown" KeyUp="NumericKeyDown" />
+        <TextBox Text="% от суммы страхования"   ToolTip="Назначить процент страхования" Margin="45,200,86,216" x:Name="TextInsurance" KeyDown="NumericKeyDown" KeyUp="NumericKeyDown"/>
+        <TextBox Text="Сумма выплаты" ToolTip="Сумма выплаты" Margin="45,239,86,177" x:Name="TextViewInsuranceSum" IsReadOnly="True"/>
+        <TextBox Text="Премия" ToolTip="Премия" Margin="45,278,86,138" x:Name="TextViewInsurancePrize" IsReadOnly="True" />
+        <DatePicker Margin="45,329,215,95" Height="26" ToolTip="формат даты **.**.****" x:Name="TextStartDate"/>
+        <DatePicker Margin="179,329,86,95" Height="26" ToolTip="формат даты **.**.****" x:Name="TextEndDate"/>
+        <Button Margin="10,379,274,53" MaxWidth="160" ToolTip="Нажми меня" Content="Добавить" x:Name="ButtonAddInsurance" Click="ButtonClickAddInsurance"/>
+        <Button Margin="175,379,109,53" MaxWidth="160" ToolTip="Нажми меня" Content="Закрыть" x:Name="ButtonCancel" Click="ButtonClickCancel" />
+        <TextBox Text="" ToolTip="Агент" Margin="45,85,86,331" x:Name="TextAgent" IsReadOnly="True"/>
+        <TabControl  HorizontalAlignment="Right" Height="480" Margin="0,-70,18,0" VerticalAlignment="Top" Width="290"  Background="Transparent" x:Name="SelectInsurance" Grid.Column="1" Visibility="Hidden">
+            <TabItem Header="" x:Name="Animals" TabIndex="1" Background="Transparent" Visibility="Hidden">
+                <Grid Background="Transparent" Margin="10,0,0,-14">
+                    <TextBox Text="Место отправления" ToolTip="Место отправления" Margin="0,10,22,319" x:Name="PlaceDeparture" Height="Auto"/>
+                    <TextBox Text="Место назначения" ToolTip="Место назначения" Margin="0,84,22,243" x:Name="Destination" Height="Auto"/>
+                    <TextBox Text="Кличка" ToolTip="Кличка" Margin="0,158,22,169" x:Name="Nickname" Height="Auto"/>
+                    <ComboBox SelectedIndex="-1" MinWidth="50" Margin="0,234,22,94" x:Name="Transport" ToolTip="Выбери клиента" Height="Auto"  IsEditable="True">
+                        <ComboBoxItem Content="Автомобиль" />
+                        <ComboBoxItem Content="Поезд" />
+                        <ComboBoxItem Content="Самолет" />
+                        <ComboBoxItem Content="Почта" />
+                    </ComboBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Имущество"  x:Name="Item"  TabIndex="2" Visibility="Hidden"  >
+                <Grid Background="Transparent">
+                    <TextBox Text="Тип объекта" ToolTip="Тип объекта" Margin="10,10,22,315" x:Name="TypeObject" Height="Auto"/>
+                    <TextBox Text="Название объекта" ToolTip="Название объекта" Margin="10,43,22,282" x:Name="NameObject" Height="Auto"/>
+                    <RichTextBox x:Name="TheCauseOfTheDamage" ToolTip="Причина повреждения" Margin="10,88,22,201" Height="Auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <FlowDocument PageWidth="230">
+                            <Paragraph>Причина повреждения</Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <RichTextBox x:Name="Contragent" ToolTip="Контраген" Margin="10,169,22,122" Height="Auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <FlowDocument PageWidth="230">
+                            <Paragraph>Контраген</Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <RichTextBox x:Name="CauseOfDamage" ToolTip="Причина ущерба" Margin="10,248,22,41" Height="Auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <FlowDocument PageWidth="230">
+                            <Paragraph>Причина ущерба</Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Интеллектуальная собственность" Visibility="Hidden"  x:Name="IntellectualProperty"  TabIndex="3" Margin="-2,5,-2,-1" >
+                <Grid Background="Transparent" Margin="0,-35,0,0">
+                    <RichTextBox x:Name="SpecialConditions" ToolTip="Дополнительные сведенья" Margin="10,54,22,22" Height="Auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <FlowDocument PageWidth="230">
+                            <Paragraph>Особые условия и оговорки</Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Жилью"  x:Name="Home"  TabIndex="4" Margin="-2,5,-2,-1"  Visibility="Hidden" >
+                <Grid   Margin="0,-35,0,0">
+                    <DatePicker Margin="10,-250,150,25" Height="26" ToolTip="Дата договора займа" x:Name="LoanAgreement"/>
+                    <TextBox Text="Номер договора займа" ToolTip="Номер договора займа" Margin="10,74,10,274"  x:Name="LoanAgreementNumber" Height="Auto" />
+                    <TextBox Text="Адрес" ToolTip="Адрес" Margin="10,119,10,234"  x:Name="AdresHome" Height="Auto" />
+                    <TextBox Text="Этажность" ToolTip="Этажность" Margin="10,159,190,201"  x:Name="FloorHome" Height="Auto" />
+                    <TextBox Text="Этаж" ToolTip="На каком этаже квартира" Margin="93,159,107,201"  x:Name="PlaceFloorHome" Height="Auto" />
+                    <TextBox Text="Квартира" ToolTip="Номер квартиры" Margin="176,159,24,201"  x:Name="NumberFlat" Height="Auto" />
+                    <TextBox Text="Площадь" ToolTip="Общая площадь кв.м." Margin="10,192,190,168"  x:Name="TotalArea" Height="Auto" RenderTransformOrigin="-1.346,2.036" />
+                    <TextBox Text="Комнаты" ToolTip="Число комнат" Margin="93,192,107,168"  x:Name="Rooms" Height="Auto" RenderTransformOrigin="-1.346,2.036" />
+                    <RichTextBox x:Name="DocumentoOfTheRightToResidentialSpace" ToolTip="Документs подтверждающие права на жилую площадь" Margin="10,237,22,22" Height="Auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <FlowDocument PageWidth="230">
+                            <Paragraph>Документs подтверждающие права на жилую площадь</Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Другое"  x:Name="Other"  TabIndex="5" Margin="-2,5,-2,-1" Visibility="Hidden">
+                <Grid Background="Transparent" Margin="0,-35,0,0">
+                    <RichTextBox x:Name="NameInsurance" ToolTip="Название страхования" Margin="10,45,22,303" Height="Auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <FlowDocument PageWidth="230" >
+                            <Paragraph>Название страхования</Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <RichTextBox x:Name="InsuranceEvent" ToolTip="Страховой случей" Margin="10,102,22,22" Height="Auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <FlowDocument PageWidth="230">
+                            <Paragraph>Страховой случей</Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

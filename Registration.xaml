@@ -1,0 +1,26 @@
+﻿<Window x:Class="Kursach.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursach"
+        mc:Ignorable="d"
+          WindowStartupLocation="CenterScreen"
+        Title="Регистрация агента" Height="400" Width="300"
+            AllowsTransparency="True" Background="Transparent"   WindowStyle="None"
+          x:Name="EntryForm" MouseDown="Window_MouseLeftButtonDown">
+    <Grid>
+        <Image Source="/Image/entry.png" />
+        <StackPanel Margin="-15,54,0,32">
+
+            <TextBox Text="Фамилия" ToolTip="Фамилия" Margin="57,10,58,10" Width="200" x:Name="TextFamile" Height="30"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="Имя" ToolTip="Имя" Margin="57,10,58,10" Width="200" x:Name="TextName" Height="30"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="Отчество" ToolTip="Отчество" Margin="57,10,58,10" Width="200" x:Name="TextDoubleName" Height="29"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="E-mail" ToolTip="E-mail" Margin="57,10,58,10" Width="200" x:Name="TextEmail" Height="29"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="Номер мобильного" ToolTip="Номер мобильного" Margin="57,10,58,10" Width="200" x:Name="TextNumber" Height="31"  MouseDoubleClick="ClearClick"/>
+        </StackPanel>
+        <Button  MaxWidth="160" ToolTip="Нажми меня" Content="Регистрация" x:Name="ButtonRegistration" Click="ButtonClickRegistration" Height="19" Margin="45,315,170,66" />
+        <Button  MaxWidth="160" ToolTip="Нажми меня" Content="Отмена" x:Name="ButtonCancel" Click="ButtonClickCancel" Height="19" Margin="153,315,59,66" />
+
+    </Grid>
+</Window>

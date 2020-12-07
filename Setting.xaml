@@ -1,0 +1,35 @@
+﻿<Window x:Class="Kursach.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursach"
+        mc:Ignorable="d"
+          WindowStartupLocation="CenterScreen"
+        Title="Настройка" Height="450" Width="800"
+          AllowsTransparency="True" Background="Transparent"   WindowStyle="None"
+          x:Name="EntryForm" MouseDown="Window_MouseLeftButtonDown" Loaded="FormLoad" >
+    <Grid>
+        <Image Source="/Image/minor.png" />
+        <Image Source="/Image/InsuranceZnak.png" Margin="99,89,111,121" />
+
+        <Button Margin="306,295,414,121" MaxWidth="160" ToolTip="Нажми меня" Content="Сохранить" x:Name="ButtonSave" Click="ButtonClickSave" />
+        <Button Margin="408,295,312,121" MaxWidth="160" ToolTip="Нажми меня" Content="Отмена" x:Name="ButtonCancel" Click="ButtonClickCancel"/>
+        <StackPanel Margin="10,86,528,94">
+            <TextBox Text="Юридический адрес" ToolTip="Юридический адрес" Margin="0,10" Width="200" x:Name="TextAdres" MouseDoubleClick="ClearClick"/>
+            <TextBox Text="Почтовый адрес" ToolTip ="Почтовый адрес"  Margin="0,10" Width="200" x:Name="TextPostalAdres"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="Телефон/факс" ToolTip="Телефон/факс" Margin="0,10" Width="200" x:Name="TextPhoneAndFacs"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="ИНН/КПП" ToolTip="ИНН/КПП" Margin="0,10" Width="200" x:Name="TextINNAndKPP"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="Расчетный счет" ToolTip="Расчетный счет" Margin="0,10" Width="200" x:Name="TextPaymentAccount"  MouseDoubleClick="ClearClick"/>
+        </StackPanel>
+        <StackPanel Margin="528,86,10,94">
+            <TextBox Text="Банк" ToolTip="Банк" Margin="0,10" Width="200" x:Name="TextBank"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="Корреспондентский счет" ToolTip="Корреспондентский счет" Margin="0,10" Width="200" x:Name="TextCorrespondentAccount"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="БИК" ToolTip="БИК"  Margin="0,10" Width="200" x:Name="TextBIC"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="E-Mail" ToolTip="E-Mail"  Margin="0,10" Width="200" x:Name="TextEmail"  MouseDoubleClick="ClearClick"/>
+            <TextBox Text="Название компание" ToolTip="Название компание"  Margin="0,10" Width="200" x:Name="TextCompanyName"  MouseDoubleClick="ClearClick"/>
+        </StackPanel>
+    </Grid>
+
+
+</Window>
